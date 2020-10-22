@@ -12,13 +12,14 @@ const UserList = () => {
         .catch(err=>{console.log(err)})
     })
     return ( <div><h3>**Users List**</h3>
-            {  
-            User.map(el=><div  className="list" key={el.id} >
-            <h4><i className="fas fa-user-alt"></i>{el.name}</h4> 
-            <h5><i className="fas fa-envelope-open"></i>{el.email}</h5>     
-            <p> <i className="fas fa-phone-alt"></i> {el.phone} </p>  
-            </div>)
-            }
-    </div> );
+    <table border="l">
+    <tr>
+        <th> Nbre  {User.map(el=><td style={{display:"block"}}><p>{el.id}</p></td>)}</th>
+        <th> Name  {User.map(el=><td style={{display:"block"}}> <p>{el.name}</p></td>)}</th>
+        <th> Email {User.map(el=><td style={{display:"block"}}><p>{el.email}</p> </td>)}</th>
+        <th> Phone {User.map(el=><td style={{display:"block"}}><p >{el.phone}</p></td>)}</th>
+        <th> Address{User.map(el=><td style={{display:"block"}}><p >{el.address.city}</p></td>)}</th>
+    </tr> 
+    </table></div>);
 }
 export default UserList ;
